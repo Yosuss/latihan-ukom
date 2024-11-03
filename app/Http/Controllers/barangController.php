@@ -83,6 +83,16 @@ class barangController extends Controller
         $data->nama_barang = $request->nama_barang;
         $data->harga = $request->harga;
         $data->stok = $request->stok;
+        // Proses file foto
+        if ($request->hasFile('foto')) {
+            // ambil data foto melalui name form
+            $file = $request->file('foto');
+            // pakai nama original
+            $fileName =  $file->getClientOriginalName();
+            // simpan di public/uploads
+            $file->move(public_path('uploads'), $fileName);
+            $data->foto = $fileName;
+        }
         $data->save();
 
         return redirect()->route('listBarang')->with('success', 'inputan berhasil ditambahkan');

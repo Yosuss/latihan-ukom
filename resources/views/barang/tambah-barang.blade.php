@@ -31,11 +31,11 @@
                 </div>
                 <div class="btn flex gap-2">
                     <a href="{{ route('listBarang') }}"
-                        class="w-full flex justify-center items-center shadow-md bg-gray-400 text-white p-2 rounded-md hover:bg-gray-700">
+                        class="w-full text-2xl capitalize flex justify-center items-center shadow-md bg-gray-400 text-white p-2 rounded-md hover:bg-gray-700">
                         <button type="submit">kembali</button>
                     </a>
                     <button type="submit"
-                        class="w-full bg-blue-600 text-white p-2 rounded-md shadow-md hover:bg-blue-700">tambah</button>
+                        class="w-full text-2xl capitalize bg-blue-600 text-white p-2 rounded-md shadow-md hover:bg-blue-700">tambah</button>
                 </div>
             </form>
         </div>

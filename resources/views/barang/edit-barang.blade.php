@@ -25,6 +25,8 @@
                 </div>
                 <div class="mb-4">
                     <label for="foto" class="block text-2xl font-medium text-gray-700">foto</label>
+                    <img src="{{ asset('uploads/' . $data->foto) }}" alt="Foto"
+                        class="w-full h-full object-cover rounded-lg shadow-md my-2">
                     <input type="file" name="foto" id="foto"
                         class="mt-1 block w-full p-2 border-2 border-gray-300 rounded-md shadow-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-xl"
                         value="{{ $data->foto }}">

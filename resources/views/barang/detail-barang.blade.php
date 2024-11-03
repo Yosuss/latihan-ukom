@@ -23,7 +23,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="foto" class="block text-2xl font-medium text-gray-700">foto</label>
-                    <img src="{{ asset('uploads/' . $data->foto) }}" alt="Foto" class="w-full h-full object-cover">
+                    <img src="{{ asset('uploads/' . $data->foto) }}" alt="Foto" class="w-full h-full object-cover rounded-lg shadow-md my-2">
                 </div>
                 <div class="btn flex gap-2">
                     <a href="{{ route('listBarang') }}"

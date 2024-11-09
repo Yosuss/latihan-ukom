@@ -1,5 +1,6 @@
 @extends('template')
 @section('konten')
+@include('component.error')
     <div class="bg-gray-200 flex items-center justify-center min-h-screen capitalize">
         <div class="bg-white p-8 rounded-lg shadow-md max-w-md ">
             <h2 class="text-4xl font-bold mb-6 text-center capitalize">edit data</h2>

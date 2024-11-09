@@ -29,6 +29,8 @@
 
         <!-- Main Dashboard -->
         <div class="main-dashboard w-10/12 max-sm:w-full bg-white rounded-3xl">
+            @include('component.success')
+            @include('component.error')
 
             <!-- Navbar -->
             @include('component.navbar')
@@ -36,7 +38,7 @@
 
             <!-- Dashboard field -->
             @include('component.btn-tambah-barang')
-
+                        
             <div class="form p-4">
                 <table action="" class="barang text-center border-2 w-full">
                     <thead id="nav-data" class="nav-data">
@@ -59,11 +61,11 @@
                                 <td class="border-2 py-1">{{ $item->nama_barang }}</td>
                                 <td class="border-2 py-1">{{ $item->harga }}</td>
                                 <td class="border-2 py-1">{{ $item->stok }}</td>
-                                <td class="border-2 py-1">{{ $item->foto }}</td>
-                                {{-- <td class="border-2 py-1">
+                                {{-- <td class="border-2 py-1">{{ $item->foto }}</td> --}}
+                                <td class="border-2 py-1">
                                     <img src="{{ asset('uploads/' . $item->foto) }}" alt="Foto"
                                         class="w-full h-6 object-cover">
-                                </td> --}}
+                                </td>
                                 <td class="flex">
                                     <div class="w-full">
                                         @include('component.btn-edit-barang')

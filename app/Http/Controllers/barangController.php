@@ -11,12 +11,14 @@ class barangController extends Controller
     //
     public function listBarang()
     {
+        // Temukan barang
         $barang = barangModel::all();
         return view('barang.barang', compact('barang'));
     }
 
     public function detailBarang($id)
     {
+        // Temukan barang
         $data = barangModel::findOrFail($id);
         return view('barang.detail-barang', compact('data'));
     }
@@ -37,7 +39,7 @@ class barangController extends Controller
             'nama_barang.required' => 'nama_barang harus diisi.',
             'harga.required' => 'harga harus diisi.',
             'stok.required' => 'stok harus diisi.',
-            'foto.required' => 'foto harus diunggah.',
+            // 'foto.required' => 'foto harus diunggah.',
         ]);
 
         // simpan data ( simple )
@@ -62,6 +64,7 @@ class barangController extends Controller
 
     public function editBarang($id)
     {
+        // Temukan barang berdasarkan ID
         $data = barangModel::findOrFail($id);
         return view('barang.edit-barang', compact('data'));
     }
@@ -72,10 +75,12 @@ class barangController extends Controller
             'nama_barang' => 'required',
             'harga' => 'required',
             'stok' => 'required',
+            // 'foto' => 'required',
         ], [
             'nama_barang.required' => 'nama_barang harus diisi.',
             'harga.required' => 'harga harus diisi.',
             'stok.required' => 'stok harus diisi.',
+            // 'foto.required' => 'foto harus diunggah.',
         ]);
 
         // simpan data ( simple )
@@ -100,18 +105,15 @@ class barangController extends Controller
 
     public function hapusBarang($id)
     {
-        try {
-            // Temukan barang berdasarkan ID
-            $barang = barangModel::findOrFail($id);
-            // Cek apakah ada file foto terkait di 'uploads' dan hapus jika ada
-            if ($barang->foto && file_exists(public_path('uploads/' . $barang->foto))) {
-                unlink(public_path('uploads/' . $barang->foto));
-                // Hapus data barang dari database
-                $barang->delete();
-            }
-            return to_route('listBarang');
-        } catch (\Exception $e) {
-            return to_route('listBarang')->withErrors('gagal hapus');
+        // Temukan barang berdasarkan ID
+        $barang = barangModel::findOrFail($id);
+        // Cek apakah ada file foto terkait di 'uploads' dan hapus jika ada
+        if ($barang->foto && file_exists(public_path('uploads/' . $barang->foto))) {
+            unlink(public_path('uploads/' . $barang->foto));
+            // Hapus data barang dari database
+            $barang->delete();
         }
+        $barang->delete();
+        return to_route('listBarang');
     }
 }
